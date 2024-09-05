@@ -182,4 +182,67 @@ export const errands = [
     status: "Completed",
   },
 ];
+export const addErrandsInputs = [
+  {
+    id: 'errandName',
+    label: 'Errand Name',
+    placeholder: 'Enter the errand name',
+    type: 'text',
+  },
+  {
+    id: 'description',
+    label: 'Description',
+    placeholder: 'Enter a brief description of the errand',
+    type: 'text',
+  },
+  {
+    id: 'location',
+    label: 'Location',
+    placeholder: 'Enter the general location',
+    type: 'text',
+  },
+  {
+    id: 'subLocation',
+    label: 'Sub-location',
+    placeholder: 'Enter the sub-location',
+    type: 'text',
+  },
+  {
+    id: 'exactLocation',
+    label: 'Exact Location',
+    placeholder: 'Enter the exact location details',
+    type: 'text',
+  },
+  {
+    id: 'timeOrDay',
+    label: 'Time or Day',
+    placeholder: 'Enter the time or day',
+    type: 'text', // Consider changing to 'datetime-local' for date and time input
+  },
+  {
+    id: 'estimatedTime',
+    label: 'Estimated Time',
+    placeholder: 'Enter the estimated time for completion',
+    type: 'text', // Can also be 'number' if dealing with hours/minutes
+  },
+  {
+    id: 'payment',
+    label: 'Payment',
+    placeholder: 'Enter the payment amount or terms',
+    type: 'text', // Can also be 'number' if only amounts are accepted
+  },
+  {
+    id: 'urgency',
+    label: 'Urgency',
+    placeholder: 'Select urgency level',
+    type: 'select', // Options could include Low, Medium, High
+  },
+  {
+    id: 'instructions',
+    label: 'Instructions',
+    placeholder: 'Enter any specific instructions',
+    type: 'textarea',
+  },
+];
+
 

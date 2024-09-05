@@ -22,7 +22,7 @@ const TextField = ({ type, placeholder }: TextFieldProps) => {
           setInputValue(e.target.value);
         }}
         autoComplete="false"
-        className="placeholder:text-xs bg-[transparent] w-full h-full outline-none"
+        className="placeholder:text-sm bg-[transparent] w-full h-full outline-none"
       />
       {type === "password" && (
         <div>

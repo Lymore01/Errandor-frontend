@@ -58,6 +58,7 @@ const DashBoard = () => {
               {dashboardNavigationMenus.map(({ href, id, link }) => (
                 <Link
                   to={href}
+                  reloadDocument
                   key={id}
                   className="w-full h-auto border border-[transparent] border-b-[grey]/60 py-4 px-2 flex justify-between hover:bg-primary"
                 >
@@ -78,7 +79,7 @@ const DashBoard = () => {
       </AnimatePresence>
       <main className="py-4 flex-1 flex flex-col gap-6">
         <h1 className="text-xl capitalize">
-          Hi <span className="font-semibold">Kelly</span>, Welcome back 😁
+          Hi <span className="font-semibold">Kelly</span>, Karibu Tena 😁
         </h1>
         {/* my errands */}
         <section className="flex flex-col gap-4">
