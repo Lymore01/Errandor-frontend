@@ -12,7 +12,6 @@ import Profile from "./pages/user/Profile";
 import MyErrands from "./pages/user/MyErrands";
 import PostErrand from "./pages/dashboard/PostErrand";
 
-
 function App() {
   return (
     <>

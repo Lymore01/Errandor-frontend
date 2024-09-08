@@ -11,14 +11,22 @@ import { FaArrowRight } from "react-icons/fa6";
 import { FiLogOut } from "react-icons/fi";
 import ErrandCard from "../../components/dashboard/ErrandCard";
 import Button from "../../components/ui/Button";
+import Modal from "../../components/ui/Modal";
 
 const DashBoard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isClaimOpen, setIsClaimOpen] = useState<boolean>(false);
+
   const handleMenuOpen = () => {
     setIsMenuOpen(true);
   };
+
+  const handleClaimToggle = () => {
+    setIsClaimOpen(true);
+  };
+
   return (
-    <div className="p-4 text-[#EDEADE]">
+    <div className="p-4 text-[#EDEADE] relative">
       <NavBar>
         <nav className="flex md:hidden flex-row justify-between w-full items-center">
           <Logo image="public\logo-white.png" />
@@ -90,8 +98,8 @@ const DashBoard = () => {
             </div>
           </div>
           <section className="flex flex-col gap-4">
-            {errands.map((errand) => (
-              <ErrandCard {...errand} showStatus={true}>
+            {errands.map((errand, index) => (
+              <ErrandCard {...errand} showStatus={true} key={index}>
                 <div className="w-full">
                   <Button href={"/dashboard/errand/1"} title="More details" />
                 </div>
@@ -109,23 +117,48 @@ const DashBoard = () => {
             </div>
           </div>
           <section className="flex flex-col gap-4">
-            {errands.map((errand) => (
-              <ErrandCard {...errand} showStatus={false}>
+            {errands.map((errand, index) => (
+              <ErrandCard {...errand} showStatus={false} key={index}>
                 <div className="w-full">
                   <Button href={"/dashboard/errand/1"} title="More details" />
                 </div>
-                <Link
-                  to={"/errand/1/claim"}
+                <div
+                  onClick={handleClaimToggle}
                   role="button"
                   className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#4CAF50] rounded-lg cursor-pointer text-md"
                 >
                   claim
-                </Link>
+                </div>
               </ErrandCard>
             ))}
           </section>
         </section>
       </main>
+      <AnimatePresence>
+        {isClaimOpen && (
+          <Modal
+            handleModalClose={() => setIsClaimOpen(false)}
+            closeTitle="Cancel"
+            buttonTitle="Claim"
+            acknowledgment="I have read and understood the responsibilities associated with claiming this errand."
+            notice="Please ensure that you can fulfill the errand requirements before claiming. Irresponsible claiming may lead to penalties or restrictions on your account."
+            modalTitle="Confirm Errand Claim?"
+          >
+            {/* Job Overview Section */}
+            <div className="bg-secondary flex flex-col gap-2 p-3 rounded-md text-sm">
+              <p>
+                <strong>Job Title:</strong> Cat Babysitting
+              </p>
+              <p>
+                <strong>Location:</strong> 123 Cat Avenue, Floor 2
+              </p>
+              <p>
+                <strong>Time Commitment:</strong> 3 hours
+              </p>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

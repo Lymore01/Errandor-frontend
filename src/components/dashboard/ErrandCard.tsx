@@ -30,9 +30,7 @@ const ErrandCard = ({
 }: ErrandCardProps) => {
   return (
     <div className="flex flex-col gap-4 w-full bg-secondary h-auto rounded-md p-2">
-      {/*  <div className="h-[100px] bg-[red] w-full">
 
-    </div> */}
       <h1 className="text-lg font-semibold">{title}</h1>
       <p>{description}</p>
       <div className="flex flex-row gap-4">

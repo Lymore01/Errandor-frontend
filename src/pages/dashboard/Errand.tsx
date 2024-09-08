@@ -8,9 +8,18 @@ import { FaRegBookmark } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import Modal from "../../components/ui/Modal";
 const Errand = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="p-4 text-[#EDEADE] flex flex-col gap-4">
+    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative">
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
@@ -78,22 +87,45 @@ const Errand = () => {
         <hr className="text-[#3d3d3d]" />
 
         <section className="flex flex-row justify-between gap-4">
-        <Link
-            to={"/accept"}
+        <div
+           onClick={handleModalToggle}
             role="button"
             className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#4CAF50] rounded-lg cursor-pointer text-md"
           >
             Accept Kelly
-          </Link>
-          <Link
-            to={"/accept"}
+          </div>
+          <div
+           onClick={handleModalToggle}
             role="button"
             className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#FF5252] rounded-lg cursor-pointer text-md"
           >
             Reject Kelly
-          </Link>
+          </div>
         </section>
       </section>
+      <AnimatePresence>
+        {isModalOpen && (
+          <Modal
+            handleModalClose={() => setIsModalOpen(false)}
+            closeTitle="Cancel"
+            buttonTitle="Accept"
+            acknowledgment="I have reviewed the errandor's profile and understand the responsibilities associated with accepting this errandor."
+            notice="Ensure that you have carefully reviewed the errandor’s profile, ratings, and previous task completions before accepting. Irresponsible acceptance of errandors can affect the quality and reliability of your errands."
+            modalTitle="Accept Errandor Confirmation"
+          >
+            {/* Job Overview Section */}
+            <div className="bg-secondary flex flex-col gap-2 p-3 rounded-md text-sm">
+              <p>
+                <strong>Job Title:</strong> Cat Babysitting
+              </p>
+              <p>
+                <strong>Errandor:</strong> Kelly Limo
+              </p>
+              
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

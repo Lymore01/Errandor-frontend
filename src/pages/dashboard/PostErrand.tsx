@@ -17,7 +17,8 @@ const PostErrand = () => {
     }
   };
   return (
-    <div className="p-4 text-[#EDEADE] flex flex-col gap-4">
+    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative">
+      
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
