@@ -16,13 +16,18 @@ const Errandor = ({
   return (
     <div className="p-4 text-[#EDEADE] flex flex-col gap-4">
       <div className="flex flex-row justify-between items-center w-full">
-        <Link to={"/dashboard/errand/1"}>
+        <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
         </Link>
         {children}
       </div>
       <hr className="text-[#3d3d3d]" />
-
+      
+      <div className="flex justify-end items-end w-full text-xs z-20">
+        <a href="/add-profile" className="underline">
+          complete profile (90% complete)
+        </a>
+      </div>
       <section className="flex flex-col gap-4">
         <div className="flex flex-row gap-4 items-center">
           <div className="size-20 bg-primary rounded-full">
@@ -32,6 +37,7 @@ const Errandor = ({
               className="rounded-full object-cover object-center"
             />
           </div>
+
           <div className="flex flex-col gap-2">
             <h1 className="capitalize">Kelly Limo</h1>
             <div className="flex flex-row">
@@ -42,6 +48,7 @@ const Errandor = ({
             </div>
           </div>
         </div>
+        {/* <Button href="" title="Change profile picture"/> */}
         <hr className="text-[#3d3d3d]" />
         <div className="flex flex-col gap-4">
           <h1 className="capitalize">Contact information</h1>
@@ -52,7 +59,7 @@ const Errandor = ({
             </div>
             {showCallButton && (
               <div className="w-[100px]">
-                <Button href="errandor/call" title="Call" />
+                <Button href="/errandor/1/Chat" title="Chat" />
               </div>
             )}
           </div>

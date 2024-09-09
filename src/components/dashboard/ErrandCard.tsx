@@ -29,8 +29,7 @@ const ErrandCard = ({
   showStatus = true,
 }: ErrandCardProps) => {
   return (
-    <div className="flex flex-col gap-4 w-full bg-secondary h-auto rounded-md p-2">
-
+    <div className="flex flex-col gap-4 w-full bg-[transparent] border border-[#3d3d3d] h-auto rounded-md p-2 md:text-sm">
       <h1 className="text-lg font-semibold">{title}</h1>
       <p>{description}</p>
       <div className="flex flex-row gap-4">
@@ -45,8 +44,9 @@ const ErrandCard = ({
         {showStatus && <StatusButton bg={statusBg} status={status} />}
         <h1 className="text-[orange] font-semibold">ksh.{paymentPrice}</h1>
       </div>
-      {children}
-      
+      <div className="w-full flex flex-col md:flex-row justify-between gap-4">
+        {children}
+      </div>
     </div>
   );
 };

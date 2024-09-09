@@ -11,6 +11,9 @@ import { BsStarFill } from "react-icons/bs";
 import Profile from "./pages/user/Profile";
 import MyErrands from "./pages/user/MyErrands";
 import PostErrand from "./pages/dashboard/PostErrand";
+import Account from "./pages/user/Account";
+import Chat from "./pages/dashboard/Chat";
+import AddProfile from "./pages/user/AddProfile";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/add-profile" element={<AddProfile />} />
+          <Route path="/errandor/1/Chat" element={<Chat />} />
           <Route path="/dashboard/errand/1" element={<Errand />} />
           <Route
             path="/dashboard/errandor/1"

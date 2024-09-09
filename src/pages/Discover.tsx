@@ -11,6 +11,7 @@ const Discover = () => {
   const handleAdvancedSearch = () => {
     setSearchToggle(!searchToggle);
   };
+  
   return (
     <div className="p-4 text-[#EDEADE] flex flex-col gap-4">
       <div className="flex flex-row gap-4 items-center w-full">

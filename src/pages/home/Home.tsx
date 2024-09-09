@@ -41,8 +41,12 @@ const Home = () => {
           <Button href="/post-errand" title="Post Your Errand Now" />
           <Button href="/sign-up" title="Become an Errandor" />
         </section>
+        <section>
+          <img src="sample.PNG" alt="dash view" className="w-full h-auto border border-[#3d3d3d] rounded-md hidden md:flex"/>
+          <img src="sampleMobile.PNG" alt="dash view" className="w-full h-auto border border-[#3d3d3d] rounded-md md:hidden flex"/>
+        </section>
         {/* Feature section */}
-        <h1 className="text-wrap font-semibold text-lg mt-4">Features</h1>
+        <h1 className="text-wrap font-semibold text-lg mt-4">Why Choose Errandor?</h1>
         <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {features.map(({ description, icon, id, title }) => (
             <FeatureCard

@@ -123,6 +123,11 @@ export const dashboardNavigationMenus = [
     link: "My Errands",
     href: "/errandor/1/errands",
   },
+  {
+    id: crypto.randomUUID(),
+    link: "Account",
+    href: "/account",
+  }
 ];
 
 export const errands = [

@@ -18,7 +18,6 @@ const PostErrand = () => {
   };
   return (
     <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative">
-      
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
@@ -31,7 +30,11 @@ const PostErrand = () => {
           Errand Name
         </label>
 
-        <TextField placeholder="Cat babysitting" type="text" />
+        <TextField
+          placeholder="Cat babysitting"
+          type="text"
+          disabled={false} border={""}         
+        />
         <label htmlFor="errand-image" id="errand-image">
           Image
         </label>
@@ -164,7 +167,12 @@ const PostErrand = () => {
         <label htmlFor="errand-name" id="errand-name">
           Payment
         </label>
-        <TextField placeholder="ksh.3000" type="number" />
+        <TextField
+          placeholder="ksh.3000"
+          type="number"
+          disabled={false}
+          border=""
+        />
         <label htmlFor="errand-urgency" id="errand-urgency">
           Urgency
         </label>

@@ -12,6 +12,10 @@ import { FiLogOut } from "react-icons/fi";
 import ErrandCard from "../../components/dashboard/ErrandCard";
 import Button from "../../components/ui/Button";
 import Modal from "../../components/ui/Modal";
+import { durations } from "../../utils/durations";
+import { prices } from "../../utils/prices";
+import { locations } from "../../utils/locations";
+import SidebarFilters from "../../components/dashboard/SidebarFilters ";
 
 const DashBoard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -26,7 +30,7 @@ const DashBoard = () => {
   };
 
   return (
-    <div className="p-4 text-[#EDEADE] relative">
+    <div className="p-4 text-[#EDEADE] relative w-full ">
       <NavBar>
         <nav className="flex md:hidden flex-row justify-between w-full items-center">
           <Logo image="public\logo-white.png" />
@@ -50,7 +54,7 @@ const DashBoard = () => {
               {/* profile */}
               <Link
                 to={"/profile"}
-                className="w-full px-2 py-4 flex flex-row justify-between items-center bg-secondary rounded-md"
+                className="w-full px-2 py-4 flex flex-col justify-between items-start bg-secondary rounded-md gap-4"
               >
                 <div className="flex flex-row gap-4 items-center">
                   <div className="size-12 bg-primary rounded-full">
@@ -61,6 +65,13 @@ const DashBoard = () => {
                     />
                   </div>
                   <h1>Kelly Limo</h1>
+                </div>
+                {/* progress */}
+                <div className="flex flex-row gap-2 w-full h-auto items-center">
+                  <div className="w-full bg-primary h-[16px] rounded-full">
+                    <div className="flex items-start bg-[#4CAF50] w-[90%] h-full rounded-full"></div>
+                  </div>
+                  <span>90%</span>
                 </div>
               </Link>
               {dashboardNavigationMenus.map(({ href, id, link }) => (
@@ -85,54 +96,62 @@ const DashBoard = () => {
           </MobileMenu>
         )}
       </AnimatePresence>
-      <main className="py-4 flex-1 flex flex-col gap-6">
-        <h1 className="text-xl capitalize">
+      <main className="py-4 flex-1 flex flex-col md:flex-row gap-6">
+        <h1 className="text-xl capitalize flex md:hidden">
           Hi <span className="font-semibold">Kelly</span>, Karibu Tena 😁
         </h1>
+        <SidebarFilters
+          locations={locations}
+          prices={prices}
+          durations={durations}
+        />
         {/* my errands */}
-        <section className="flex flex-col gap-4">
-          <div className="flex flex-row justify-between items-center w-full">
-            <h1 className="text-lg capitalize">My Errands</h1>
-            <div className="w-[100px]">
-              <Button href={"/post-errand"} title={"Add"} />
+        <div className="py-4 flex-1 flex flex-col gap-4">
+           {/* my errands */}
+           <section className="flex flex-col gap-4">
+            <div className="flex flex-row justify-between items-center w-full">
+              <h1 className="text-lg capitalize">Errands For You</h1>
+              <div className="w-[100px]">
+                <Button href={"/discover"} title={"More"} />
+              </div>
             </div>
-          </div>
-          <section className="flex flex-col gap-4">
-            {errands.map((errand, index) => (
-              <ErrandCard {...errand} showStatus={true} key={index}>
-                <div className="w-full">
-                  <Button href={"/dashboard/errand/1"} title="More details" />
-                </div>
-              </ErrandCard>
-            ))}
+            <section className="flex flex-col gap-4 md:grid md:grid-cols-1 md:w-full">
+              {errands.map((errand, index) => (
+                <ErrandCard {...errand} showStatus={false} key={index}>
+                  <div className="w-full">
+                    <Button href={"/dashboard/errand/1"} title="More details" />
+                  </div>
+                  <div
+                    onClick={handleClaimToggle}
+                    role="button"
+                    className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#4CAF50] rounded-lg cursor-pointer text-md"
+                  >
+                    claim
+                  </div>
+                </ErrandCard>
+              ))}
+            </section>
           </section>
-        </section>
-        <hr className="text-[#3d3d3d]" />
-        {/* my errands */}
-        <section className="flex flex-col gap-4">
-          <div className="flex flex-row justify-between items-center w-full">
-            <h1 className="text-lg capitalize">Errands For You</h1>
-            <div className="w-[100px]">
-              <Button href={"/discover"} title={"More"} />
+          <hr className="text-[#3d3d3d]" />
+          <section className="flex flex-col gap-4 ">
+            <div className="flex flex-row justify-between items-center w-full">
+              <h1 className="text-lg capitalize">My Errands</h1>
+              <div className="w-[100px]">
+                <Button href={"/post-errand"} title={"Add"} />
+              </div>
             </div>
-          </div>
-          <section className="flex flex-col gap-4">
-            {errands.map((errand, index) => (
-              <ErrandCard {...errand} showStatus={false} key={index}>
-                <div className="w-full">
-                  <Button href={"/dashboard/errand/1"} title="More details" />
-                </div>
-                <div
-                  onClick={handleClaimToggle}
-                  role="button"
-                  className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#4CAF50] rounded-lg cursor-pointer text-md"
-                >
-                  claim
-                </div>
-              </ErrandCard>
-            ))}
+            <section className="flex flex-col gap-4 md:grid md:grid-cols-1 md:w-full">
+              {errands.map((errand, index) => (
+                <ErrandCard {...errand} showStatus={true} key={index}>
+                  <div className="w-full">
+                    <Button href={"/dashboard/errand/1"} title="More details" />
+                  </div>
+                </ErrandCard>
+              ))}
+            </section>
           </section>
-        </section>
+         
+        </div>
       </main>
       <AnimatePresence>
         {isClaimOpen && (

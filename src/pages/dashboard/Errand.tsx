@@ -19,7 +19,7 @@ const Errand = () => {
   };
 
   return (
-    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative">
+    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative md:w-[80%] mx-auto">
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
@@ -29,7 +29,7 @@ const Errand = () => {
         </div>
       </div>
       <hr className="text-[#3d3d3d]" />
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 md:w-[80%]">
         <h1 className="text-lg font-semibold">Grocery shopping</h1>
         <p>Need someone to pick up groceries from the local market.</p>
         <div className="flex flex-row gap-4 items-center">
