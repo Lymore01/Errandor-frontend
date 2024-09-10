@@ -54,7 +54,7 @@ const DashBoard = () => {
               {/* profile */}
               <Link
                 to={"/profile"}
-                className="w-full px-2 py-4 flex flex-col justify-between items-start bg-secondary rounded-md gap-4"
+                className="w-full px-2 py-4 flex flex-col justify-between items-start bg-secondary/30 rounded-md gap-4"
               >
                 <div className="flex flex-row gap-4 items-center">
                   <div className="size-12 bg-primary rounded-full">
@@ -164,7 +164,7 @@ const DashBoard = () => {
             modalTitle="Confirm Errand Claim?"
           >
             {/* Job Overview Section */}
-            <div className="bg-secondary flex flex-col gap-2 p-3 rounded-md text-sm">
+            <div className="bg-secondary/30 flex flex-col gap-2 p-3 rounded-md text-sm">
               <p>
                 <strong>Job Title:</strong> Cat Babysitting
               </p>

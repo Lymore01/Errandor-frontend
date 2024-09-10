@@ -17,7 +17,7 @@ const FeatureCard = React.forwardRef(
   ) => {
     return (
       <motion.div
-        className="w-full h-auto rounded-md p-2 gap-4 flex flex-col bg-secondary items-center justify-center cursor-pointer"
+        className="w-full h-auto rounded-md p-2 gap-4 flex flex-col bg-secondary/30 items-center justify-center cursor-pointer"
         ref={ref}
         transition={{ duration: 1, ease: "easeIn", type: "spring" }}
       >

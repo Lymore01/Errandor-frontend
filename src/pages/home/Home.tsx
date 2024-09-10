@@ -24,6 +24,7 @@ const Home = () => {
           <Logo image="public\logo-white.png" />
           <GiHamburgerMenu size={30} fill="white" onClick={handleMenuOpen} />
         </nav>
+        
       </NavBar>
 
       <hr className="text-[#3d3d3d]" />
@@ -60,7 +61,7 @@ const Home = () => {
         {/* how it works section */}
         <h1 className="text-wrap font-semibold text-lg mt-4">How it works</h1>
         <section className="grid grid-cols-1 md:grid-cols-2 w-full text-[#EDEADE]">
-          <div className="p-4 bg-secondary rounded-md h-auto flex flex-col gap-4 items-start">
+          <div className="p-4 bg-secondary/30 rounded-md h-auto flex flex-col gap-4 items-start">
             {stepsData.map(({ title, step }) => (
               <div className="flex flex-row gap-4" key={step}>
                 <input

@@ -21,7 +21,7 @@ const TextField = ({
   };
   return (
     <div
-      className={`w-full h-auto flex flex-row p-4 justify-between bg-secondary shadow-lg rounded-sm items-center ${border}`}
+      className={`w-full h-auto flex flex-row p-4 justify-between bg-secondary/30 shadow-lg rounded-sm items-center ${border}`}
     >
       <input
         type={type}

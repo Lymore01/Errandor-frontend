@@ -6,6 +6,7 @@ import StatusButton from "../../components/dashboard/StatusButton";
 import { AnimatePresence } from "framer-motion";
 import Modal from "../../components/ui/Modal";
 import { useState } from "react";
+import Footer from "../../components/ui/Footer";
 
 const MyErrands = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -22,42 +23,45 @@ const MyErrands = () => {
       </div>
       <hr className="text-[#3d3d3d]" />
       {/* active errands */}
-      <section className="flex flex-col gap-4">
-        <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="text-lg capitalize">Active Errands</h1>
-        </div>
-        <section className="flex flex-col gap-4">
-          {errands.map((errand) => (
-            <ErrandCard {...errand} showStatus={false}>
-              <div className="w-full">
-                <div className="w-full h-auto p-4 items-center justify-center flex font-semibold capitalize border border-[#4CAF50] rounded-lg cursor-pointer text-md">
-                  Time remaining : 1hr 32min
+      <div className="md:max-h-screen md:overflow-hidden w-full flex flex-col md:flex-row gap-4 md:justify-between">
+        <section className="flex flex-col gap-4 w-full md:max-h-screen md:overflow-y-scroll">
+          <div className="flex flex-row justify-between items-center w-full">
+            <h1 className="text-lg capitalize">Active Errands</h1>
+          </div>
+          <section className="flex flex-col gap-4">
+            {errands.map((errand) => (
+              <ErrandCard {...errand} showStatus={false}>
+                <div className="w-full">
+                  <div className="w-full h-auto p-4 items-center justify-center flex font-semibold capitalize border border-[#4CAF50] rounded-lg cursor-pointer text-md">
+                    Time remaining : 1hr 32min
+                  </div>
                 </div>
-              </div>
-            </ErrandCard>
-          ))}
+              </ErrandCard>
+            ))}
+          </section>
         </section>
-      </section>
-      {/* claimed errands */}
-      <section className="flex flex-col gap-4">
-        <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="text-lg capitalize">Claimed Errands</h1>
-        </div>
-        <section className="flex flex-col gap-4">
-          {errands.map((errand) => (
-            <ErrandCard {...errand} showStatus={false}>
-              <StatusButton bg={"bg-[#4CAF50]"} status={"Pending"} />
-              <div
-                onClick={handleModalToggle}
-                role="button"
-                className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#FF5252] rounded-lg cursor-pointer text-md"
-              >
-                cancel errand
-              </div>
-            </ErrandCard>
-          ))}
+        {/* claimed errands */}
+        <section className="flex flex-col gap-4 w-full md:max-h-screen md:overflow-y-scroll">
+          <div className="flex flex-row justify-between items-center w-full">
+            <h1 className="text-lg capitalize">Claimed Errands</h1>
+          </div>
+          <section className="flex flex-col gap-4">
+            {errands.map((errand) => (
+              <ErrandCard {...errand} showStatus={false}>
+                <StatusButton bg={"bg-[#4CAF50]"} status={"Pending"} />
+                <div
+                  onClick={handleModalToggle}
+                  role="button"
+                  className="w-full h-auto p-4 items-center justify-center flex text-[black] font-semibold capitalize bg-[#FF5252] rounded-lg cursor-pointer text-md"
+                >
+                  cancel errand
+                </div>
+              </ErrandCard>
+            ))}
+          </section>
         </section>
-      </section>
+      </div>
+
       <AnimatePresence>
         {isModalOpen && (
           <Modal
@@ -73,6 +77,7 @@ const MyErrands = () => {
           </Modal>
         )}
       </AnimatePresence>
+      <Footer />
     </div>
   );
 };

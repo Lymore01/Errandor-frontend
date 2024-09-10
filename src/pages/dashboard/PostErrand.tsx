@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TextField from "../../components/auth/TextField";
 import Button from "../../components/ui/Button";
 import { useState } from "react";
+import Footer from "../../components/ui/Footer";
 
 const PostErrand = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -17,7 +18,7 @@ const PostErrand = () => {
     }
   };
   return (
-    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative">
+    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 relative md:w-[80%] mx-auto">
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
@@ -25,7 +26,7 @@ const PostErrand = () => {
       </div>
       <hr className="text-[#3d3d3d]" />
       <h1 className="capitalize text-lg">Post An Errand</h1>
-      <form action="" className="w-full flex flex-col gap-4">
+      <form action="" className="w-full flex flex-col gap-4 md:w-[60%] mx-auto">
         <label htmlFor="errand-name" id="errand-name">
           Errand Name
         </label>
@@ -89,13 +90,13 @@ const PostErrand = () => {
         <textarea
           name="errand-des"
           id="errand-des"
-          className="h-40 bg-secondary outline-none p-2"
+          className="h-40 bg-secondary/30 outline-none p-2"
           placeholder="Cat babysitting for Mr. Whiskers – he’s a retired nap champion who enjoys pretending he’s being ignored. Warning: Will demand cuddles and tuna snacks at unpredictable moments. 😼🛋️..."
         ></textarea>
         <label htmlFor="errand-name" id="errand-name">
           Location
         </label>
-        <div className="bg-secondary w-full h-auto flex flex-col px-2 py-4 gap-4">
+        <div className="bg-secondary/30 w-full h-auto flex flex-col px-2 py-4 gap-4">
           <div>
             <label htmlFor="errand-county" id="errand-county">
               County
@@ -142,7 +143,7 @@ const PostErrand = () => {
           <label htmlFor="errand-date-time" id="errand-date-time">
             Date and time
           </label>
-          <div className="w-full h-auto bg-secondary p-2">
+          <div className="w-full h-auto bg-secondary/30 p-2">
             <input
               type="datetime-local"
               name="date-time"
@@ -155,7 +156,7 @@ const PostErrand = () => {
           <label htmlFor="errand-time" id="errand-time">
             Completion time
           </label>
-          <div className="w-full h-auto bg-secondary p-2">
+          <div className="w-full h-auto bg-secondary/30 p-2">
             <input
               type="time"
               name="time"
@@ -177,13 +178,13 @@ const PostErrand = () => {
           Urgency
         </label>
         <select className="bg-[transparent] outline-none h-[60px] border border-[grey]/20">
-          <option value="High" key="high" className="bg-secondary text-sm">
+          <option value="High" key="high" className="bg-secondary/30 text-sm">
             High
           </option>
-          <option value="Medium" key="Medium" className="bg-secondary text-sm">
+          <option value="Medium" key="Medium" className="bg-secondary/30 text-sm">
             Medium
           </option>
-          <option value="Low" key="Low" className="bg-secondary text-sm">
+          <option value="Low" key="Low" className="bg-secondary/30 text-sm">
             Low
           </option>
         </select>
@@ -193,11 +194,12 @@ const PostErrand = () => {
         <textarea
           name="errand-instruction"
           id="errand-instruction"
-          className="h-40 bg-secondary outline-none p-2"
+          className="h-40 bg-secondary/30 outline-none p-2"
           placeholder="Mr. Whiskers is a drama king – do not, I repeat, DO NOT, look away while he's sunbathing or you’ll hear about it for hours 🐱☀️..."
         ></textarea>
         <Button href="" title="Submit" />
       </form>
+      <Footer />
     </div>
   );
 };

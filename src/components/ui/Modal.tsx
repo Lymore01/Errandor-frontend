@@ -31,7 +31,7 @@ const Modal = ({
       }}
       className="fixed h-screen inset-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.8)] p-6 text-[#EDEADE] mt-0 ml-0"
     >
-      <div className="w-full h-auto bg-primary rounded-md p-4 flex flex-col gap-4 justify-between">
+      <div className="w-full md:max-w-md h-auto bg-primary rounded-md p-4 flex flex-col gap-4 justify-between">
         <h1 className="text-2xl text-start">{modalTitle}</h1>
         {children}
 

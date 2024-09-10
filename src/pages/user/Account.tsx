@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TextField from "../../components/auth/TextField";
 import { useState } from "react";
 import Button from "../../components/ui/Button";
+import Footer from "../../components/ui/Footer";
 
 const accountInfo = [
   {
@@ -43,7 +44,7 @@ const Account = () => {
     setInputDisabled(false);
   };
   return (
-    <div className="p-4 text-[#EDEADE] flex flex-col gap-4">
+    <div className="p-4 text-[#EDEADE] flex flex-col gap-4 md:w-[80%] mx-auto">
       <div className="flex flex-row justify-between items-center w-full">
         <Link to={"/dashboard"}>
           <IoMdArrowRoundBack size={24} />
@@ -61,7 +62,7 @@ const Account = () => {
       <hr className="text-[#3d3d3d]" />
       <main className="gap-4 flex flex-col">
         <h1 className="text-lg">Account</h1>
-        <form action="" className="gap-4 flex flex-col">
+        <form action="" className="gap-4 flex flex-col w-full md:w-[60%] mx-auto">
           {accountInfo.map(({ htmlFor, id, placeholder, title, type }) => (
             <div key={id} className="flex flex-col gap-4">
               <label htmlFor={htmlFor} id={htmlFor}>
@@ -79,6 +80,7 @@ const Account = () => {
           {editButtonShow && <Button href="" title="Save" />}
         </form>
       </main>
+      <Footer />
     </div>
   );
 };

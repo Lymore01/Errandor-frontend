@@ -19,7 +19,7 @@ const Discover = () => {
           <IoMdArrowRoundBack size={24} />
         </Link>
         {/* search bar */}
-        <div className="flex flex-1 bg-secondary rounded-md p-4 justify-between">
+        <div className="flex flex-1 bg-secondary/30 rounded-md p-4 justify-between">
           <input
             type="text"
             name="search-errand"
@@ -63,7 +63,7 @@ const Discover = () => {
                 type="text"
                 name="search-errand"
                 id="errand-search"
-                className="outline-none bg-secondary rounded-md p-4"
+                className="outline-none bg-secondary/30 rounded-md p-4"
                 placeholder="Enter location..."
               />
             </section>
@@ -73,7 +73,7 @@ const Discover = () => {
                 type="text"
                 name="search-errand"
                 id="errand-search"
-                className="outline-none bg-secondary rounded-md p-4"
+                className="outline-none bg-secondary/30 rounded-md p-4"
                 placeholder="Enter sub-location..."
               />
             </section>
@@ -83,7 +83,7 @@ const Discover = () => {
                 type="text"
                 name="search-errand"
                 id="errand-search"
-                className="outline-none bg-secondary rounded-md p-4"
+                className="outline-none bg-secondary/30 rounded-md p-4"
                 placeholder="Enter price..."
               />
             </section>
