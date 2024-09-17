@@ -8,7 +8,7 @@ const FilterSection = ({ title, options }: { title: string; options: any }) => (
           className="flex flex-row gap-3 text-sm font-normal items-center"
           key={option.id}
         >
-          <input type="checkbox" className="accent-primary" />
+          <input type="checkbox" className="accent-[#ECEAE2] focus:accent-[#98fb98]" />
           {option.name || option.price || option.duration}
         </span>
       ))}

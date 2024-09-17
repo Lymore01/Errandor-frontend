@@ -1,7 +1,7 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import Logo from "../../components/ui/Logo";
 import NavBar from "../../components/ui/NavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import MobileMenu from "../../components/ui/MobileMenu";
 import { IoCloseSharp } from "react-icons/io5";
@@ -16,10 +16,15 @@ import { durations } from "../../utils/durations";
 import { prices } from "../../utils/prices";
 import { locations } from "../../utils/locations";
 import SidebarFilters from "../../components/dashboard/SidebarFilters ";
+import { useSearchParams } from "react-router-dom";
 
 const DashBoard = () => {
+  const [query, setQuery] = useState<string>("");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isClaimOpen, setIsClaimOpen] = useState<boolean>(false);
+  const [filteredErrands, setFilteredErrands] = useState([]);
+  const [dynamicTitle] = useState("Errands For You");
+  const [searchParams] = useSearchParams();
 
   const handleMenuOpen = () => {
     setIsMenuOpen(true);
@@ -28,6 +33,25 @@ const DashBoard = () => {
   const handleClaimToggle = () => {
     setIsClaimOpen(true);
   };
+
+  useEffect(() => {
+    searchParams.forEach((value) => {
+      setQuery(value);
+    });
+  }, [searchParams]);
+
+  useEffect(() => {
+    const filtered = errands.filter((errand) =>
+      errand.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredErrands(filtered);
+  }, [query]);
+
+ /*  useEffect(() => {
+    if (query !== "") {
+      setDynamicTitle(`Search results for: ${query}`);
+    }
+  }, [query]); */
 
   return (
     <div className="p-4 text-[#EDEADE] relative w-full ">
@@ -107,16 +131,16 @@ const DashBoard = () => {
         />
         {/* my errands */}
         <div className="py-4 flex-1 flex flex-col gap-4">
-           {/* my errands */}
-           <section className="flex flex-col gap-4">
+          {/* my errands */}
+          <section className="flex flex-col gap-4">
             <div className="flex flex-row justify-between items-center w-full">
-              <h1 className="text-lg capitalize">Errands For You</h1>
+              <h1 className="text-lg capitalize">{dynamicTitle}</h1>
               <div className="w-[100px]">
                 <Button href={"/discover"} title={"More"} />
               </div>
             </div>
             <section className="flex flex-col gap-4 md:grid md:grid-cols-1 md:w-full">
-              {errands.map((errand, index) => (
+              {filteredErrands.map((errand, index) => (
                 <ErrandCard {...errand} showStatus={false} key={index}>
                   <div className="w-full">
                     <Button href={"/dashboard/errand/1"} title="More details" />
@@ -150,7 +174,6 @@ const DashBoard = () => {
               ))}
             </section>
           </section>
-         
         </div>
       </main>
       <AnimatePresence>
