@@ -51,8 +51,9 @@ const NavBar = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    setSearchParams({ q: searchValue }); 
+    setSearchParams({ q: searchValue || "", location: "" }); 
   }, [searchValue, setSearchParams]);
+
 
   return (
     <div className="relative">
