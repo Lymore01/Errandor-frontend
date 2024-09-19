@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 const FilterSection = ({ title, options }: { title: string; options: any }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const handleChange = (value: string) => {
-   setSearchParams({ location: value })
+    setSearchParams({ location: value });
   };
 
   return (

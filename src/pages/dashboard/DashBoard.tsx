@@ -47,12 +47,6 @@ const DashBoard = () => {
     setFilteredErrands(filtered);
   }, [query]);
 
- /*  useEffect(() => {
-    if (query !== "") {
-      setDynamicTitle(`Search results for: ${query}`);
-    }
-  }, [query]); */
-
   return (
     <div className="p-4 text-[#EDEADE] relative w-full ">
       <NavBar>

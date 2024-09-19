@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Logo from "./Logo";
 import {
   dashboardNavigationMenus,
@@ -35,7 +36,7 @@ const accountMenus = [
 const NavBar = ({ children }: { children: React.ReactNode }) => {
  
   const [accountToggle, setAccountToggle] = useState(false);
-  const [isNotificationOpen, setisNotificationOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const location = useLocation().pathname;
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,7 +44,7 @@ const NavBar = ({ children }: { children: React.ReactNode }) => {
     setAccountToggle(!accountToggle);
   };
   const handleNotification = () => {
-    setisNotificationOpen(true);
+    setIsNotificationOpen(true);
   };
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -170,7 +171,7 @@ const NavBar = ({ children }: { children: React.ReactNode }) => {
                 <IoMdArrowRoundBack
                   size={24}
                   onClick={() => {
-                    setisNotificationOpen(false);
+                    setIsNotificationOpen(false);
                   }}
                 />
                 <h1>Notifications</h1>
